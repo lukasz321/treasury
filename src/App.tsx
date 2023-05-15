@@ -26,7 +26,7 @@ function App() {
         fetch(url)
           .then(response => response.json())
           .then(data => ({
-            apy: parseFloat(data.FormattedQuoteResult.FormattedQuote[0].bond_last_price).toFixed(2),
+            apy: data.FormattedQuoteResult.FormattedQuote[0].last,
             name: data.FormattedQuoteResult.FormattedQuote[0].shortName
           }))
       )
@@ -48,7 +48,7 @@ function App() {
             {data.map(({ name, apy }) => (
               <tr key={name}>
                 <td>{name}</td>
-                <td>{apy + '%'}</td>
+                <td>{apy}</td>
               </tr>
             ))}
           </tbody>
