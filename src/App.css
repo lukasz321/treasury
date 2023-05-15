@@ -1,25 +1,29 @@
+html {
+    color-scheme: light dark;
+}
+
+body {
+    font-family: system-ui;
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+div {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100vh;
+}
+
 table {
   border-collapse: collapse;
-  width: 50%;
+  width: 70%;
 }
 
 th, td {
+  width: 10rem;
   text-align: left;
   padding: 9px;
   border-bottom: 0.5px solid #ddd;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 1vmin);
-  color: white;
-}

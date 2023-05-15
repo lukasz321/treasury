@@ -26,7 +26,7 @@ function App() {
         fetch(url)
           .then(response => response.json())
           .then(data => ({
-            apy: data.FormattedQuoteResult.FormattedQuote[0].bond_last_price,
+            apy: parseFloat(data.FormattedQuoteResult.FormattedQuote[0].bond_last_price).toFixed(2),
             name: data.FormattedQuoteResult.FormattedQuote[0].shortName
           }))
       )
@@ -36,8 +36,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
         <table>
           <thead>
             <tr>
@@ -54,7 +53,6 @@ function App() {
             ))}
           </tbody>
         </table>
-      </header>
     </div>
   );
 }
