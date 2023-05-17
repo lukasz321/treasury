@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 
 const BASE_URL = 'https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?';
@@ -14,7 +12,8 @@ const URLS: Array<string> = [URL_1M, URL_2M, URL_3M, URL_6M, URL_1Y];
 
 interface Bond {
   name: string;
-  apy: string;
+  apy: number;
+  previous_day: number;
 }
 
 function App() {
@@ -26,8 +25,9 @@ function App() {
         fetch(url)
           .then(response => response.json())
           .then(data => ({
-            apy: data.FormattedQuoteResult.FormattedQuote[0].last,
-            name: data.FormattedQuoteResult.FormattedQuote[0].shortName
+            apy: parseFloat(data.FormattedQuoteResult.FormattedQuote[0].last.replace("%", "")),
+            name: data.FormattedQuoteResult.FormattedQuote[0].shortName,
+            previous_day: parseFloat(data.FormattedQuoteResult.FormattedQuote[0].previous_day_closing.replace("%", "")),
           }))
       )
     )
@@ -38,20 +38,22 @@ function App() {
   return (
     <div>
         <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>APY</th>
+        <thead>
+              <th>Bond</th>
+              <th>N</th>
+              <th>Y</th>
+        </thead>
+        <tbody>
+          {data.map(({ name, apy, previous_day }) => (
+            <tr key={name}>
+              <td>{name}</td>
+              <td>{apy.toString() + "%"}</td>
+              <td className={`${apy > previous_day ? "up" : "down"}`}>
+                {(apy - previous_day).toFixed(3).toString() + "%"}
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {data.map(({ name, apy }) => (
-              <tr key={name}>
-                <td>{name}</td>
-                <td>{apy}</td>
-              </tr>
-            ))}
-          </tbody>
+          ))}
+        </tbody>
         </table>
     </div>
   );
