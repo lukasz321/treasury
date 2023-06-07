@@ -7,8 +7,10 @@ const URL_2M = BASE_URL + 'symbols=US2M&requestMethod=itv&noform=1&partnerId=2&f
 const URL_3M = BASE_URL + 'symbols=US3M&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1';
 const URL_6M = BASE_URL + 'symbols=US6M&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1';
 const URL_1Y = BASE_URL + 'symbols=US1Y&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1';
+const URL_2Y = BASE_URL + 'symbols=US2Y&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1';
+const URL_5Y = BASE_URL + 'symbols=US5Y&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1';
 
-const URLS: Array<string> = [URL_1M, URL_2M, URL_3M, URL_6M, URL_1Y];
+const URLS: Array<string> = [URL_1M, URL_2M, URL_3M, URL_6M, URL_1Y, URL_2Y, URL_5Y];
 
 interface Bond {
   name: string;
