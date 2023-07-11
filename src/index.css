@@ -3,13 +3,15 @@ body {
   color: rgba(255, 255, 255, 0.8);
   font-family: 'Roboto Mono', monospace;
   font-size: 23px;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 div {
   display: flex;
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
-  height: 100vh;
+  height: 90vh;
 }
 
 
@@ -23,18 +25,18 @@ th, td {
   padding: 19px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.7); 
   white-space: nowrap; 
+  font-size: 20px;
 }
 
 th {
   text-align: center;
+  font-size: 17px;
 }
 
 .up {
   color: rgba(0, 240, 0, 0.8);
-  font-size: 20px;
 }
 
 .down {
   color: rgba(240, 0, 0, 0.8);
-  font-size: 20px;
 }

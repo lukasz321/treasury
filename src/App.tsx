@@ -42,8 +42,8 @@ function App() {
         <table>
         <thead>
               <th>Bond</th>
-              <th>N</th>
-              <th>Y</th>
+              <th>APY</th>
+              <th>Change</th>
         </thead>
         <tbody>
           {data.map(({ name, apy, previous_day }) => (
